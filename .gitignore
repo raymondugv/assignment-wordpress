@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.local
+
+# Local Docker/runtime artifacts
+docker-data/
+*.log
+
+# WordPress content cache files
+wp-content/cache/
+wp-content/upgrade/
+
+# Keep deployable code in git
+!wp-content/
+!wp-content/themes/
+!wp-content/plugins/
+!wp-content/uploads/
