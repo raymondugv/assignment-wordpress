@@ -5,7 +5,8 @@ This project runs WordPress with Docker Compose and keeps deployable code editab
 ## Services
 
 - WordPress: `http://localhost:8080`
-- Database: MariaDB (`db` service)
+- Database: MySQL (`db` service)
+- MySQL host access: `localhost:3369`
 
 ## Start
 
