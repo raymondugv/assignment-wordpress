@@ -4,7 +4,7 @@ This project runs WordPress with Docker Compose and keeps deployable code editab
 
 ## Services
 
-- WordPress: `http://localhost:8080`
+- WordPress: `http://localhost:8989`
 - Database: MySQL (`db` service)
 - MySQL host access: `localhost:3369`
 
@@ -14,7 +14,7 @@ This project runs WordPress with Docker Compose and keeps deployable code editab
 docker compose up -d
 ```
 
-Then open `http://localhost:8080` and complete WordPress setup.
+Then open `http://localhost:8989` and complete WordPress setup.
 
 ## Stop
 
