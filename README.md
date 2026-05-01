@@ -4,7 +4,8 @@ This project runs WordPress with Docker Compose and keeps deployable code editab
 
 ## Services
 
-- WordPress: `http://localhost:8989`
+- WordPress (HTTPS via Caddy): `https://wp.localhost:8443`
+- WordPress (internal container): `wordpress:80`
 - Database: MySQL (`db` service)
 - MySQL host access: `localhost:3369`
 
@@ -14,7 +15,28 @@ This project runs WordPress with Docker Compose and keeps deployable code editab
 docker compose up -d
 ```
 
-Then open `http://localhost:8989` and complete WordPress setup.
+Then open `https://wp.localhost:8443` and complete WordPress setup.
+
+## Local HTTPS setup
+
+This stack uses Caddy as a local TLS terminator in front of WordPress.
+
+- Public local URL: `https://wp.localhost:8443`
+- Caddy reads certs from `certs/`
+- WordPress runs behind Caddy and receives `X-Forwarded-Proto: https`
+
+Generate local trusted certificates with `mkcert`:
+
+```bash
+mkcert -install
+mkcert -cert-file "certs/wp.localhost.pem" -key-file "certs/wp.localhost-key.pem" wp.localhost localhost 127.0.0.1 ::1
+```
+
+Notes:
+
+- `:8443` is used because local `:443` may already be in use.
+- If your machine has free `:443`, you can remap Docker and use `https://wp.localhost` directly.
+- This setup is local-only and does not affect production unless you deploy these files there.
 
 ## Stop
 
