@@ -78,7 +78,18 @@ In WordPress Admin (`https://wp.localhost:8443/wp-admin`):
    - **Elementor**
    - **WC Elementor Widget**
 
-### 2) Generate WooCommerce API keys
+### 2) Configure WordPress permalinks (required)
+
+1. Go to **Settings -> Permalinks**.
+2. Set **Permalink Structure** to **Post name**.
+3. Click **Save Changes**.
+
+Important:
+
+- Do this on each environment (local, staging, production).
+- If permalinks are incorrect, REST routes can fail or return `404 rest_no_route`.
+
+### 3) Generate WooCommerce API keys
 
 1. Go to **WooCommerce -> Settings -> Advanced -> REST API**.
 2. Click **Add key**.
@@ -96,7 +107,7 @@ Important:
 - You can only view the full secret right after generation.
 - If you lose it, generate a new key pair.
 
-### 3) Add `consumer_key` and `consumer_secret` to plugin settings
+### 4) Add `consumer_key` and `consumer_secret` to plugin settings
 
 1. Go to **Settings -> WC Widget Settings**.
 2. Paste values into:
@@ -107,7 +118,7 @@ Important:
    - Otherwise leave it blank to use `get_site_url()` automatically.
 4. Click **Save Changes**.
 
-### 4) Verify permissions and connection
+### 5) Verify permissions and connection
 
 After saving keys:
 
